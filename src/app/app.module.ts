@@ -8,6 +8,7 @@ import { MainComponent } from './main/main.component';
 import { CategoryListComponent } from './views/category/category-list/category-list.component';
 import { ProductListComponent } from './views/product/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductAddComponent } from './views/product/product-add/product-add.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     SideBarComponent,
     MainComponent,
     CategoryListComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
