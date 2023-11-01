@@ -1,3 +1,5 @@
+import { Size } from "./size";
+
 export interface Product {
     id: number;
     name: string;
@@ -5,6 +7,6 @@ export interface Product {
     price: number;
     image: string;
     sku: number;
-    size: number;
+    size: Size;
     categoryId: number;
 }

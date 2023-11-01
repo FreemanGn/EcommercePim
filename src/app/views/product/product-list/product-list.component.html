@@ -1,52 +1,65 @@
-<div class="flex flex-wrap">
-  <div class="w-full mb-12  pl-72 pt-10 pr-10">
-
-      <table class="w-full text-sm text-center text-gray-500 dark:text-gray-400">
-          <thead class="text-xs text-center text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-              <tr>
-                  <th scope="col" class="px-2 py-6">
-                     Image
-                  </th>
-                  <th scope="col" class="px-2 py-6">
-                      Name
-                  </th>
-                  <th scope="col" class="px-2 py-6">
-                      Descrption
-                  </th>
-                  <th scope="col" class="px-2 py-6">
-                      Price
-                  </th>
-                  <th scope="col" class="px-2 py-6">
-                      Size
-                  </th>
-                  <th scope="col" class="px-2 py-6">
-                      Action
-                  </th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor="let product of products" class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                     {{product.image}}
-                  </th>
-                  <td class="px-6 py-4">
-                      {{product.name}}
-                  </td>
-                  <td class="px-6 py-4">
-                      {{product.description}}
-                  </td>
-                  <td class="px-6 py-4">
-                    {{product.price}}
-                  </td>
-                  <td class="px-6 py-4">
-                    {{product.size}}
-                  </td>
-                  <td class="px-6 py-4">
-                      <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                  </td>
-              </tr>
-          </tbody>
-      </table>
+<div class="w-full mb-12  pl-72 pt-10 pr-10">
+  <div>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-4"  [routerLink]="['/product/add']">
+      Add Product
+    </button>
   </div>
-
+  <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-2xl rounded">
+    <div class="rounded-t mb-0 px-4 py-3 border-0">
+      <div class="flex flex-wrap items-center">
+        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+          <h3 class="font-semibold text-lg">Product List</h3>
+        </div>
+      </div>
+    </div>
+    <div class="block w-full overflow-x-auto">
+      <!-- Projects table -->
+      <table class="items-center w-full bg-transparent border-collapse table-auto">
+        <thead>
+          <tr  >
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-gray-50 text-gray-500">
+              Products
+            </th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-gray-50 text-gray-500">
+              Description
+            </th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-gray-50 text-gray-500">
+              Price
+            </th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-gray-50 text-gray-500">
+              Size
+            </th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-gray-50 text-gray-500">
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+              <img src="assets/img/bootstrap.jpg" class="h-12 w-12 bg-white rounded-full border" alt="..."/>
+              <span class="ml-3 font-bold text-gray-600">
+                {{product.name}}
+              </span>
+            </th>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+              {{product.description}}
+            </td>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+              {{product.price}} USD
+            </td>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+              {{product.size}}
+            </td>
+            <td class="border-t-0 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-4">
+                Edit
+              </button>
+              <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                Delete
+              </button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
 </div>
