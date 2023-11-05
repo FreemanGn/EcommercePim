@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent {
+  collapseShow = "hidden";
 
+  toggleCollapseShow(classes:any) {
+    this.collapseShow = classes;
+  }
 }
