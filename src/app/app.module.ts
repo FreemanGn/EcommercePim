@@ -9,6 +9,7 @@ import { CategoryListComponent } from './views/category/category-list/category-l
 import { ProductListComponent } from './views/product/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductAddComponent } from './views/product/product-add/product-add.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductAddComponent } from './views/product/product-add/product-add.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

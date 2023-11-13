@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product';
+import { ProductPost } from 'src/app/models/productPost';
 
 
 const API_URL = environment.API_URL;
@@ -16,5 +17,9 @@ export class ProductService {
 
   getAllProducts() : Observable<Product[]> {
     return this.http.get<Product[]>(API_URL + '/Product');
+  }
+
+  addProduct(product: ProductPost) : Observable<Product> {
+    return this.http.post<Product>(API_URL + '/Product', product);
   }
 }
