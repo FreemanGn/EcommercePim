@@ -1,7 +1,7 @@
-<div class="w-full mb-12  pl-72 pt-10 pr-10 flex ">
-  <form>
+<div class="w-full mb-12  pl-72 pt-10 pr-10">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
     <div class="space-y-12">
-      <div class="border-b border-gray-900/10 pb-12 w-50">
+      <div class="pb-12 w-50">
         <h2 class="text-base font-semibold leading-7 text-gray-900">New Product</h2>
 
         <div class="mt-5">
@@ -9,7 +9,7 @@
             <label for="name" class="text-sm font-semibold leading-6 text-gray-900">Product Name</label>
             <div class="mt-2">
               <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 w-full">
-                <input type="text" name="productName" id="productName" autocomplete="productName" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Enter a product name">
+                <input type="text" name="productName" id="productName" autocomplete="productName" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Enter a product name" formControlName="productName">
               </div>
             </div>
           </div>
@@ -20,7 +20,7 @@
             <label for="productDescription" class="text-sm font-semibold leading-6 text-gray-900">Description</label>
             <div class="mt-2">
               <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 w-full">
-                <input type="text" name="productDescription" id="productDescription" autocomplete="productDescription" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Enter a product description">
+                <input type="text" name="productDescription" id="productDescription" autocomplete="productDescription" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Enter a product description" formControlName="productDescription">
               </div>
             </div>
           </div>
@@ -31,7 +31,7 @@
             <label for="productPrice" class="text-sm font-semibold leading-6 text-gray-900">Price</label>
             <div class="mt-2">
               <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 w-full">
-                <input type="number" name="productPrice" id="productPrice" autocomplete="productPrice" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Enter a product price">
+                <input type="number" name="productPrice" id="productPrice" autocomplete="productPrice" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Enter a product price" formControlName="productPrice">
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@
             <label for="productSku" class="text-sm font-semibold leading-6 text-gray-900">Sku</label>
             <div class="mt-2">
               <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 w-full">
-                <input type="text" name="productSku" id="productSku" autocomplete="productSku" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Enter a product sku">
+                <input type="text" name="productSku" id="productSku" autocomplete="productSku" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Enter a product sku" formControlName="productSku">
               </div>
             </div>
           </div>
@@ -52,10 +52,10 @@
           <div class="sm:col-span-4">
             <label for="country" class="text-sm font-semibold leading-6 text-gray-900">Category</label>
             <div class="mt-2">
-              <select id="country" name="country" autocomplete="country-name" class="block w-full appearance-none rounded-md border-0 p-1.5 bg-transparent text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 w-full sm:text-sm sm:leading-6">
-                <option>United States</option>
-                <option>Canada</option>
-                <option>Mexico</option>
+              <select id="country" name="country" autocomplete="country-name" class="block w-full appearance-none rounded-md border-0 p-1.5 bg-transparent text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 w-full sm:text-sm sm:leading-6" formControlName="productCategory">
+                <option value="0">Homme</option>
+                <option value="1">Femme</option>
+                <option value="2">Enfant</option>
               </select>
 
             </div>
@@ -69,15 +69,15 @@
             <fieldset>
               <div class="mt-6 space-y-6">
                 <div class="flex items-center gap-x-3">
-                  <input id="productSizeXs" name="productSize" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                  <input id="productSizeXs" name="productSize" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600" value="0" formControlName="productSize">
                   <label for="productSizeXs" class="block text-sm font-medium leading-6 text-gray-900">XS</label>
                 </div>
                 <div class="flex items-center gap-x-3">
-                  <input id="productSizeS" name="productSize" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                  <input id="productSizeS" name="productSize" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600" value="1" formControlName="productSize">
                   <label for="productSizeS" class="block text-sm font-medium leading-6 text-gray-900">S</label>
                 </div>
                 <div class="flex items-center gap-x-3">
-                  <input id="productSizeM" name="productSize" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                  <input id="productSizeM" name="productSize" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600" value="2" formControlName="productSize">
                   <label for="productSizeM" class="block text-sm font-medium leading-6 text-gray-900">M</label>
                 </div>
               </div>
@@ -87,11 +87,11 @@
           <div class="w-1/3">
             <div class="mt-6 space-y-6">
               <div class="flex items-center gap-x-3">
-                <input id="productSizeL" name="productSize" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                <input id="productSizeL" name="productSize" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600" value="3" formControlName="productSize">
                 <label for="productSizeL" class="block text-sm font-medium leading-6 text-gray-900">L</label>
               </div>
               <div class="flex items-center gap-x-3">
-                <input id="productSizeXl" name="productSize" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                <input id="productSizeXl" name="productSize" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600" value="4" formControlName="productSize">
                 <label for="productSizeXl" class="block text-sm font-medium leading-6 text-gray-900">XL</label>
               </div>
             </div>
@@ -115,6 +115,15 @@
               <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
             </div>
           </div>
+        </div>
+
+        <div class="mt-10">
+          <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-semibold rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
+            <svg class="-ml-1 mr-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v4h4a1 1 0 110 2h-4v4a1 1 0 11-2 0v-4H6a1 1 0 110-2h4V4a1 1 0 011-1z" clip-rule="evenodd" />
+            </svg>
+            Save
+          </button>
         </div>
 
       </div>

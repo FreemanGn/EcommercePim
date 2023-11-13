@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Product } from 'src/app/models/product';
+import { ProductPost } from 'src/app/models/productPost';
+import { ProductService } from 'src/app/services/product-service/product.service';
 
 @Component({
   selector: 'app-product-add',
@@ -6,5 +10,44 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-add.component.css']
 })
 export class ProductAddComponent {
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private productService : ProductService
+    ) { }
+
+  // product from
+  productForm : FormGroup = this.formBuilder.group({
+    productName : [''],
+    productDescription : [''],
+    productPrice : [''],
+    productSku : [''],
+    productSize : [''],
+    productCategory : [''],
+    productImg : ['URL'],
+  });
+
+
+  onSubmit() {
+    const product : ProductPost = {
+      name : this.productForm.value.productName,
+      description : this.productForm.value.productDescription,
+      price : this.productForm.value.productPrice,
+      image : this.productForm.value.productImg,
+      sku : this.productForm.value.productSku,
+      size : this.productForm.value.productSize,
+      categoryId : this.productForm.value.productCategory,
+    };
+
+    this.productService.addProduct(product).subscribe({
+      next : (product : Product) => {
+        console.log(product);
+      },
+      error : (err : any) => {
+        console.log(err);
+      }
+    });
+    console.log(this.productForm.value);
+  }
 
 }
