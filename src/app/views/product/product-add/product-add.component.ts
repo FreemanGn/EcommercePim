@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastEvokeService } from '@costlydeveloper/ngx-awesome-popup';
 import { Product } from 'src/app/models/product';
 import { ProductPost } from 'src/app/models/productPost';
 import { ProductService } from 'src/app/services/product-service/product.service';
@@ -13,7 +15,9 @@ export class ProductAddComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private productService : ProductService
+    private productService : ProductService,
+    private route : Router,
+    private toastEvokeService: ToastEvokeService
     ) { }
 
   // product from
@@ -27,7 +31,7 @@ export class ProductAddComponent {
     productImg : ['URL'],
   });
 
-
+// function to submit product
   onSubmit() {
     const product : ProductPost = {
       name : this.productForm.value.productName,
@@ -41,13 +45,13 @@ export class ProductAddComponent {
 
     this.productService.addProduct(product).subscribe({
       next : (product : Product) => {
-        console.log(product);
+        this.toastEvokeService.success('Succes', 'Product created succefuly').subscribe();
+        this.route.navigate(['/product']);
       },
       error : (err : any) => {
         console.log(err);
       }
     });
-    console.log(this.productForm.value);
   }
 
 }
