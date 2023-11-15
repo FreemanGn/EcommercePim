@@ -18,6 +18,9 @@ export class ProductService {
   getAllProducts() : Observable<Product[]> {
     return this.http.get<Product[]>(API_URL + '/Product');
   }
+  getProductById(id: number) : Observable<Product> {
+    return this.http.get<Product>(API_URL + '/Product/' + id);
+  }
 
   addProduct(product: ProductPost) : Observable<Product> {
     return this.http.post<Product>(API_URL + '/Product', product);
@@ -25,5 +28,8 @@ export class ProductService {
 
   deleteProduct(id: number) : Observable<number> {
     return this.http.delete<number>(API_URL + '/Product/' + id);
+  }
+  updateProduct(product: Product) : Observable<Product> {
+    return this.http.put<Product>(API_URL + '/Product/' + product.id, product);
   }
 }

@@ -9,13 +9,14 @@ import { CategoryListComponent } from './views/category/category-list/category-l
 import { ProductListComponent } from './views/product/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductAddComponent } from './views/product/product-add/product-add.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   NgxAwesomePopupModule,
   DialogConfigModule,
   ConfirmBoxConfigModule,
   ToastNotificationConfigModule
 } from '@costlydeveloper/ngx-awesome-popup';
+import { ProductEditComponent } from './views/product/product-edit/product-edit.component';
 
 
 @NgModule({
@@ -25,13 +26,15 @@ import {
     MainComponent,
     CategoryListComponent,
     ProductListComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     NgxAwesomePopupModule.forRoot(), // Essential, mandatory main module.
     DialogConfigModule.forRoot(), // Needed for instantiating dynamic components.
     ConfirmBoxConfigModule.forRoot(), // Needed for instantiating confirm boxes.
