@@ -7,6 +7,6 @@ export interface Product {
     price: number;
     image: string;
     sku: number;
-    size: Size;
+    size: string;
     categoryId: number;
 }
