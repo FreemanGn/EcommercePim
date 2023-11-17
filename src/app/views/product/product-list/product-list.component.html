@@ -1,6 +1,6 @@
 <div class="w-full mb-12  pl-72 pt-10 pr-10">
   <div>
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-4"  [routerLink]="['/product/add']">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4"  [routerLink]="['/product/add']">
       Add Product
     </button>
   </div>
@@ -51,10 +51,10 @@
               {{product.size}}
             </td>
             <td class="border-t-0 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
-              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-4">
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-4" [routerLink]="['/product/edit',product.id]">
                 Edit
               </button>
-              <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+              <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" (click)="deleteProduct(product.id)">
                 Delete
               </button>
           </tr>

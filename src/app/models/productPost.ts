@@ -1,12 +1,11 @@
 import { Size } from "./size";
 
-export interface Product {
-    id: number;
+export interface ProductPost {
     name: string;
     description: string;
     price: number;
     image: string;
     sku: number;
-    size: string;
+    size: Size;
     categoryId: number;
 }
