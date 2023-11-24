@@ -1,54 +1,53 @@
 <div class="w-full mb-12  pl-72 pt-10 pr-10">
-    <div>
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-4"  [routerLink]="['/category/add']">
-        Add Category
-      </button>
-    </div>
-    <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-2xl rounded">
-      <div class="rounded-t mb-0 px-4 py-3 border-0">
-        <div class="flex flex-wrap items-center">
-          <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-            <h3 class="font-semibold text-lg">Category List</h3>
-          </div>
+  <div>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4"  [routerLink]="['/category/add']">
+      Add Category
+    </button>
+  </div>
+  <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-2xl rounded">
+    <div class="rounded-t mb-0 px-4 py-3 border-0">
+      <div class="flex flex-wrap items-center">
+        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+          <h3 class="font-semibold text-lg">Category List</h3>
         </div>
       </div>
-      <div class="block w-full overflow-x-auto">
-        <!-- Projects table -->
-        <table class="items-center w-full bg-transparent border-collapse table-auto">
-          <thead>
-            <tr  >
-              <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-gray-50 text-gray-500">
-                Products Names
-              </th>
-              <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-gray-50 text-gray-500">
-                Description
-              </th>
-             
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let category of categories">
-              <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                <img src="assets/img/bootstrap.jpg" class="h-12 w-12 bg-white rounded-full border" alt="..."/>
-                <span class="ml-3 font-bold text-gray-600">
-                  {{category.name}}
-          
-                </span>
-              </th>
-              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                {{category.description}}
-              </td>
-              <td class="border-t-0 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-4">
-                  Edit
-                </button>
-                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                  Delete
-                </button>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-  </div>
-  </div>
-  
+    </div>
+    <div class="block w-full overflow-x-auto">
+      <!-- Projects table -->
+      <table class="items-center w-full bg-transparent border-collapse table-auto">
+        <thead>
+          <tr  >
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-gray-50 text-gray-500">
+              Categories
+            </th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-gray-50 text-gray-500">
+              Description
+            </th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-gray-50 text-gray-500">
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categories">
+            <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+              <img src="assets/img/bootstrap.jpg" class="h-12 w-12 bg-white rounded-full border" alt="..."/>
+              <span class="ml-3 font-bold text-gray-600">
+                {{category.name}}
+              </span>
+            </th>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+              {{category.description}}
+            </td>
+            <td class="border-t-0 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-4" [routerLink]="['/category/edit',category.id]">
+                Edit
+              </button>
+              <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" (click)="deleteCategory(category.id)">
+                Delete
+              </button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+</div>

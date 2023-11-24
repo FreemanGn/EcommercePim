@@ -10,6 +10,9 @@ import { ProductListComponent } from './views/product/product-list/product-list.
 import { HttpClientModule } from '@angular/common/http';
 import { ProductAddComponent } from './views/product/product-add/product-add.component';
 import { CategoryAddComponent } from './views/category/category-add/category-add.component';
+import { CategoryEditComponent } from './views/category/category-edit/category-edit.component';
+import { CategoryDeleteComponent } from './views/category/category-delete/category-delete.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,12 +22,16 @@ import { CategoryAddComponent } from './views/category/category-add/category-add
     CategoryListComponent,
     ProductListComponent,
     ProductAddComponent,
-    CategoryAddComponent
+    CategoryAddComponent,
+    CategoryEditComponent,
+    CategoryDeleteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
